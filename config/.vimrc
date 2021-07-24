@@ -1,3 +1,6 @@
+
+set encoding=utf-8
+
 let g:vimrc = expand('<sfile>:p')  
 let g:root_dir = expand('<sfile>:p:h') .'/.vim/'
 let g:plugin_dir = root_dir .'plugins'
@@ -24,6 +27,8 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('vim-airline/vim-airline')
 		call dein#add('vim-airline/vim-airline-themes')
 		call dein#add('tpope/vim-fugitive')
+		call dein#add('neoclide/coc.nvim')
+		
 	call dein#end()
 	call dein#save_state()
 endif
@@ -64,7 +69,6 @@ set cindent
 set list
 set listchars=tab:»-
 set fenc=utf-8
-set encoding=utf-8
 set nobackup
 set noswapfile
 set cursorline
@@ -134,7 +138,7 @@ autocmd BufWritePre *.js,*.php,*.go,*.py,*.rb,*.vue call <SID>RemoveDust()
 
 " Reload vimrc
 command! C silent! execute ':source ' .g:vimrc 
-
+command! DeleteCache silent! call dein#recache_runtimepath()
 
 " Accelerated motion 
 nmap j <Plug>(accelerated_jk_gj)
@@ -186,4 +190,7 @@ autocmd FileType ctp setlocal commentstring=//\ %s
 
 
 " vim-airline
-let g:airline_theme='bubblegum'
+let g:airline_theme='murmur'
+
+" Coc-vim
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-go', 'coc-phpls']
