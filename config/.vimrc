@@ -28,7 +28,8 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('vim-airline/vim-airline-themes')
 		call dein#add('tpope/vim-fugitive')
 		call dein#add('neoclide/coc.nvim')
-		
+		call dein#add('mattn/emmet-vim')
+
 	call dein#end()
 	call dein#save_state()
 endif
@@ -193,4 +194,9 @@ autocmd FileType ctp setlocal commentstring=//\ %s
 let g:airline_theme='murmur'
 
 " Coc-vim
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-go', 'coc-phpls']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-phpls', 'coc-css', 'coc-yaml', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-vetur', 'coc-sh']
+command! -nargs=0 Format :call CocAction('format')
+
+
+" vim emmet
+let g:user_emmet_leader_key='<C-t>'

@@ -1,20 +1,37 @@
 #!/bin/sh
 
 
-# curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-# sh ./installer.sh ./config/.vim/dein
-# rm ./installer.sh
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ./config/.vim/dein
+rm ./installer.sh
 
 
-# git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-# nerd-fonts/install.sh
-# rm -fr nerd-fonts
+git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+nerd-fonts/install.sh
+rm -fr nerd-fonts
 
 
-node -v &> /dev/null
-if [ $? -ne 0 ]; then
-	echo "Require Node.js for Coc.vim, Get started to install Node.js latest..."
-	curl -sL install-node.now.sh/lts | bash
-else
-	echo "nodejs is installed"
-fi
+echo ""
+echo "[Note] Require Node.js if you use Coc.vim Node.js lsp"
+echo "-----------"
+echo "# Node.js Latest"
+echo "$ curl -sL install-node.now.sh/lts | bash"
+echo "-----------"
+echo ""
+echo ""
+echo "[Note] Require Go and gopls if you use Coc.vim golang lsp"
+echo "-----------"
+echo "# Go"
+echo "$ wget https://golang.org/dl/go1.16.6.linux-amd64.tar.gz"
+echo "$ tar xzf go1.16.6.linux-amd64.tar.gz -C ~"
+echo "$ export GOROOT=$HOME/go"
+echo "$ GOPATH=$HOME/Documents/go"
+echo "$ PATH=$PATH:$GOROOT/bin:$GOPATH/bin"
+echo ""
+echo "# gopls"
+echo "$ go get golang.org/x/tools/gopls@latest"
+echo "-----------"
+echo ""
+echo ""
+echo "Copy coc-settings.json to :CocConfig"
+echo ""
