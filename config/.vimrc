@@ -18,6 +18,7 @@ endif
 if dein#load_state(g:plugin_dir)
 	call dein#begin(g:plugin_dir)
 		call dein#add(g:dein_dir)
+		call dein#add('kentaro-a/stdodump.vim')
 		call dein#add('preservim/nerdtree')
 		call dein#add('jistr/vim-nerdtree-tabs')
 		call dein#add('rhysd/accelerated-jk')
@@ -31,7 +32,7 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('mattn/emmet-vim')
 		call dein#add('junegunn/fzf', {'build': './install --all', 'merged': 0 })
 		call dein#add('junegunn/fzf.vim')
-		call dein#add('kentaro-a/stdodump.vim')
+		call dein#add('osyo-manga/vim-over')
 	call dein#end()
 	call dein#save_state()
 endif
@@ -83,8 +84,10 @@ set noexpandtab
 set iskeyword+=-
 set showtabline=2
 set clipboard+=autoselect
-
-
+set hlsearch
+set modifiable
+set write
+set ignorecase
 
 "Common Mapping
 xnoremap p "_dP
@@ -100,6 +103,11 @@ noremap <S-j>	}
 noremap <S-k>	{
 noremap <S-l>	$
 vnoremap <S-l> $<Left>
+
+
+" Quick Fix
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+autocmd FileType qf nnoremap <buffer> t <C-W><Enter><C-W>T
 
 
 
@@ -212,3 +220,8 @@ let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffse
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :Rg<CR>
 
+
+" vim-over (replace)
+nnoremap <Space>r :OverCommandLine<CR>%s/<C-r><C-w>//gI<Left><Left><Left>
+vnoremap <silent> <Space>r :OverCommandLine<CR>s///gI<Left><Left><Left>
+vnoremap <silent> r "zy:let @/ = @z<CR>:OverCommandLine<CR>%s/<C-r>///gI<Left><Left><Left>
