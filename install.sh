@@ -7,11 +7,6 @@ sh ./installer.sh ./config/.vim/dein
 rm ./installer.sh
 
 
-git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-nerd-fonts/install.sh
-rm -fr nerd-fonts
-
-
 if ! command -v rg &> /dev/null
 then
 	echo "[Error] ripgrep command is not found"
