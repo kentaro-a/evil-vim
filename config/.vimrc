@@ -29,7 +29,9 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('tpope/vim-fugitive')
 		call dein#add('neoclide/coc.nvim')
 		call dein#add('mattn/emmet-vim')
-
+		call dein#add('junegunn/fzf', {'build': './install --all', 'merged': 0 })
+		call dein#add('junegunn/fzf.vim')
+		call dein#add('kentaro-a/stdodump.vim')
 	call dein#end()
 	call dein#save_state()
 endif
@@ -200,3 +202,13 @@ command! -nargs=0 Format :call CocAction('format')
 
 " vim emmet
 let g:user_emmet_leader_key='<C-t>'
+
+
+" fzf
+let mapleader = "\<Space>"
+let $FZF_DEFAULT_OPTS="--layout=reverse"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>g :Rg<CR>
+
