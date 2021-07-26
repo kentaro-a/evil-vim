@@ -29,7 +29,7 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('vim-airline/vim-airline-themes')
 		call dein#add('tpope/vim-fugitive')
 		call dein#add('neoclide/coc.nvim')
-		call dein#add('mattn/emmet-vim')
+		call dein#add('alvan/vim-closetag')
 		call dein#add('junegunn/fzf', {'build': './install --all', 'merged': 0 })
 		call dein#add('junegunn/fzf.vim')
 		call dein#add('osyo-manga/vim-over')
@@ -208,9 +208,8 @@ let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-phpls', '
 command! -nargs=0 Format :call CocAction('format')
 
 
-" vim emmet
-let g:user_emmet_leader_key='<C-t>'
-
+" vim-closetag 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp'
 
 " fzf
 let mapleader = "\<Space>"
