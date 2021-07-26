@@ -1,4 +1,33 @@
-
+"property
+scriptencoding utf-8
+filetype plugin indent on
+syntax on
+set number
+set backspace=2 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent
+set cindent
+set list
+set listchars=tab:»-
+set fenc=utf-8
+set nobackup
+set noswapfile
+set cursorline
+set title
+set mouse=a
+set nowrap
+set pastetoggle=<F2>
+set noexpandtab
+set iskeyword+=-
+set showtabline=2
+set clipboard+=autoselect
+set hlsearch
+set modifiable
+set write
+set ignorecase
 set encoding=utf-8
 
 let g:vimrc = expand('<sfile>:p')  
@@ -58,36 +87,7 @@ highlight LineNr ctermfg=67
 au BufNewFile,BufRead *.ctp setf ctp
 
 
-"property
-scriptencoding utf-8
-filetype plugin indent on
-syntax on
-set number
-set backspace=2 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-set smartindent
-set cindent
-set list
-set listchars=tab:»-
-set fenc=utf-8
-set nobackup
-set noswapfile
-set cursorline
-set title
-set mouse=a
-set nowrap
-set pastetoggle=<F2>
-set noexpandtab
-set iskeyword+=-
-set showtabline=2
-set clipboard+=autoselect
-set hlsearch
-set modifiable
-set write
-set ignorecase
+
 
 "Common Mapping
 xnoremap p "_dP
