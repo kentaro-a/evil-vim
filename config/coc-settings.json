@@ -10,3 +10,5 @@
 	"eslint.filetypes": ["javascript", "vue"],
 	"vetur.ignoreProjectWarning": true
 }
+
+

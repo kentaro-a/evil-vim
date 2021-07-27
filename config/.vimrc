@@ -13,7 +13,6 @@ if &compatible
   set nocompatible
 endif
 
-
 " Plugins 
 if dein#load_state(g:plugin_dir)
 	call dein#begin(g:plugin_dir)
@@ -33,6 +32,8 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('junegunn/fzf', {'build': './install --all', 'merged': 0 })
 		call dein#add('junegunn/fzf.vim')
 		call dein#add('osyo-manga/vim-over')
+		call dein#add('ervandew/supertab')
+		call dein#add('terryma/vim-expand-region')
 	call dein#end()
 	call dein#save_state()
 endif
@@ -41,21 +42,6 @@ if has('vim_starting') && dein#check_install()
 	call dein#install()
 endif
 
-
-
-" Color Schema
-colorscheme myblue 
-set t_Co=256
-hi SpecialKey ctermfg=237 guifg=#3a3a3a
-hi NonText ctermfg=66 guifg=#5f8787
-hi TabLineFill term=bold cterm=bold ctermbg=0
-hi TabLineSel term=bold cterm=bold ctermbg=75 ctermfg=15
-hi Comment ctermfg=242
-highlight LineNr ctermfg=67
-
-
-" filetype
-au BufNewFile,BufRead *.ctp setf ctp
 
 
 "property
@@ -88,6 +74,24 @@ set hlsearch
 set modifiable
 set write
 set ignorecase
+
+
+" filetype
+au BufNewFile,BufRead *.ctp setf ctp
+
+
+" Color Schema
+colorscheme myblue 
+set t_Co=256
+hi SpecialKey ctermfg=237 guifg=#3a3a3a
+hi NonText ctermfg=66 guifg=#5f8787
+hi TabLineFill term=bold cterm=bold ctermbg=0
+hi TabLineSel term=bold cterm=bold ctermbg=75 ctermfg=15
+hi Comment ctermfg=242
+highlight LineNr ctermfg=67
+
+
+
 
 "Common Mapping
 xnoremap p "_dP
@@ -206,7 +210,10 @@ let g:airline_theme='murmur'
 " Coc-vim
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-phpls', 'coc-css', 'coc-yaml', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-vetur', 'coc-sh']
 command! -nargs=0 Format :call CocAction('format')
-
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
+autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
+autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
 
 " vim-closetag 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp'
@@ -224,3 +231,5 @@ nnoremap <silent> <leader>g :Rg<CR>
 nnoremap <Space>r :OverCommandLine<CR>%s/<C-r><C-w>//gI<Left><Left><Left>
 vnoremap <silent> <Space>r :OverCommandLine<CR>s///gI<Left><Left><Left>
 vnoremap <silent> r "zy:let @/ = @z<CR>:OverCommandLine<CR>%s/<C-r>///gI<Left><Left><Left>
+
+
