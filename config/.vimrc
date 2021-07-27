@@ -127,8 +127,6 @@ inoremap jj <ESC>
 noremap <CR> A<CR><ESC>
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 xnoremap p "_dP
-nmap <silent> -- <C-_><C-_>
-vmap <silent> -- <C-_><C-_>
 noremap <S-h>	^
 noremap <S-j>	}
 noremap <S-k>	{
@@ -225,8 +223,8 @@ endif
 
 
 "vim-commentary
-nmap -- gcc
-vmap -- gcc
+nmap <silent> -- gcc
+vmap <silent> -- gc
 autocmd FileType apache setlocal commentstring=#\ %s
 autocmd FileType ctp setlocal commentstring=//\ %s
 
