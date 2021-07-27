@@ -260,4 +260,18 @@ nnoremap <Space>r :OverCommandLine<CR>%s/<C-r><C-w>//gI<Left><Left><Left>
 vnoremap <silent> <Space>r :OverCommandLine<CR>s///gI<Left><Left><Left>
 vnoremap <silent> r "zy:let @/ = @z<CR>:OverCommandLine<CR>%s/<C-r>///gI<Left><Left><Left>
 
-
+" expand-region
+let g:expand_region_text_objects = {
+	      \ 'iw'  :0,
+      \ 'iW'  :0,
+      \ 'i"'  :0,
+      \ 'i''' :0,
+      \ 'i]'  :1,
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'il'  :1,
+      \ 'ip'  :1,
+      \ 'ie'  :0,
+      \ }
+" copy function
+nnoremap <silent> vaf [m{jV]m%
