@@ -35,10 +35,10 @@ if dein#load_state(g:plugin_dir)
 	call dein#end()
 	call dein#save_state()
 endif
-call map(dein#check_clean(), "delete(v:val, 'rf')")
 if has('vim_starting') && dein#check_install()
 	call dein#install()
 endif
+call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 
 "property
@@ -148,8 +148,10 @@ autocmd BufWritePre *.js,*.php,*.go,*.py,*.rb,*.vue call <SID>RemoveDust()
 
 
 " Reload vimrc
-command! C silent! execute ':source ' .g:vimrc 
-command! DeleteCache silent! call dein#recache_runtimepath()
+command! C silent! execute ':e ' .g:vimrc 
+command! Cr silent! execute ':source ' .g:vimrc 
+command! Cocdel silent! call dein#check_clean() && call dein#recache_runtimepath()
+
 
 " Accelerated motion 
 nmap j <Plug>(accelerated_jk_gj)
@@ -204,15 +206,15 @@ autocmd FileType ctp setlocal commentstring=//\ %s
 let g:airline_theme='murmur'
 
 " Coc-vim
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-phpls', 'coc-css', 'coc-yaml', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-vetur', 'coc-sh']
+let g:coc_global_extensions = ['coc-phpls', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-go']
 command! -nargs=0 Format :call CocAction('format')
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
-autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
-autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
+vmap <S-f> <Plug>(coc-format-selected)
+nmap <S-f> <Plug>(coc-format-selected)
+
 
 " vim-closetag 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.tsx, *.jsx'
 
 " fzf
 let mapleader = "\<Space>"
@@ -243,3 +245,4 @@ let g:expand_region_text_objects = {
       \ }
 " copy function
 nnoremap <silent> vaf [m{jV]m%
+
