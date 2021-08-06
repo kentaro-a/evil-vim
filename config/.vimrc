@@ -1,9 +1,9 @@
 
-
 let g:vimrc = expand('<sfile>:p')  
 let g:root_dir = expand('<sfile>:p:h') .'/.vim/'
 let g:plugin_dir = root_dir .'plugins'
 let g:dein_dir = root_dir .'dein/repos/github.com/Shougo/dein.vim'
+
 execute 'set runtimepath+=' .g:root_dir
 execute 'set runtimepath+=' .g:plugin_dir
 execute 'set runtimepath+=' .g:dein_dir
@@ -32,6 +32,7 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('osyo-manga/vim-over')
 		call dein#add('ervandew/supertab')
 		call dein#add('terryma/vim-expand-region')
+		call dein#add('ryanoasis/vim-devicons')
 	call dein#end()
 	call dein#save_state()
 endif
@@ -219,10 +220,11 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.t
 " fzf
 let mapleader = "\<Space>"
 let $FZF_DEFAULT_OPTS="--layout=reverse"
-let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+let $FZF_DEFAULT_COMMAND="rg -S --files --hidden --glob '!.git/**'"
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>g :Rg<CR>
+" exact match
+nnoremap <silent> <leader>g :Rg<CR>'
 nnoremap <silent> <leader>h :History<CR>
 
 
@@ -253,3 +255,5 @@ nnoremap <silent> vaf [m{jV]m%
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 
+" devicons (if nerd-font is installed set 1 to this.
+let g:webdevicons_enable_nerdtree = 1
