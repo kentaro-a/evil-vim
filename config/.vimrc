@@ -206,7 +206,7 @@ autocmd FileType ctp setlocal commentstring=//\ %s
 let g:airline_theme='murmur'
 
 " Coc-vim
-let g:coc_global_extensions = ['coc-phpls', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-go']
+let g:coc_global_extensions = ['coc-phpls', 'coc-tsserver', 'coc-prettier', 'coc-go']
 command! -nargs=0 Format :call CocAction('format')
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 vmap <S-f> <Plug>(coc-format-selected)
