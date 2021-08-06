@@ -223,6 +223,8 @@ let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :Rg<CR>
+nnoremap <silent> <leader>h :History<CR>
+
 
 
 " vim-over (replace)
@@ -245,4 +247,8 @@ let g:expand_region_text_objects = {
       \ }
 " copy function
 nnoremap <silent> vaf [m{jV]m%
+
+
+" supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
