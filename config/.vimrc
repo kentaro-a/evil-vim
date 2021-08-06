@@ -224,6 +224,7 @@ let $FZF_DEFAULT_COMMAND="rg -S --files --hidden --glob '!.git/**'"
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 nnoremap <silent> <leader>f :Files<CR>
 " exact match
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0) 
 nnoremap <silent> <leader>g :Rg<CR>'
 nnoremap <silent> <leader>h :History<CR>
 
