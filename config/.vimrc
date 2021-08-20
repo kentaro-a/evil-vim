@@ -151,7 +151,6 @@ autocmd BufWritePre *.js,*.php,*.go,*.py,*.rb,*.vue call <SID>RemoveDust()
 " Reload vimrc
 command! C silent! execute ':e ' .g:vimrc 
 command! Cr silent! execute ':source ' .g:vimrc 
-command! Cocdel silent! call dein#check_clean() && call dein#recache_runtimepath()
 
 
 " Accelerated motion 
@@ -207,11 +206,15 @@ autocmd FileType ctp setlocal commentstring=//\ %s
 let g:airline_theme='murmur'
 
 " Coc-vim
-let g:coc_global_extensions = ['coc-phpls', 'coc-tsserver', 'coc-prettier', 'coc-go']
+" fzf
+let mapleader = "\R"
+let g:coc_global_extensions = ['coc-phpls', 'coc-tsserver', 'coc-prettier', 'coc-go', 'coc-restclient']
 command! -nargs=0 Format :call CocAction('format')
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 vmap <S-f> <Plug>(coc-format-selected)
 nmap <S-f> <Plug>(coc-format-selected)
+noremap <Leader>q :CocCommand rest-client.request <cr>
+command! Cocdel silent! call dein#check_clean() && call dein#recache_runtimepath()
 
 
 " vim-closetag 
