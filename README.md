@@ -1,2 +1,2 @@
 # evil-vim
-devilized vim.
+Devilized vim.
