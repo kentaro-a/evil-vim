@@ -33,6 +33,7 @@ if dein#load_state(g:plugin_dir)
 		call dein#add('ervandew/supertab')
 		call dein#add('terryma/vim-expand-region')
 		call dein#add('ryanoasis/vim-devicons')
+		call dein#add('easymotion/vim-easymotion')
 	call dein#end()
 	call dein#save_state()
 endif
@@ -261,3 +262,12 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " devicons (if nerd-font is installed set 1 to this.
 let g:webdevicons_enable_nerdtree = 1
+
+
+" easy-motion
+map  <Leader>s <Plug>(easymotion-bd-f)
+nmap <Leader>s <Plug>(easymotion-overwin-f)
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
