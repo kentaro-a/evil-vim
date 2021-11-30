@@ -210,7 +210,8 @@ let g:airline_theme='murmur'
 " fzf
 let mapleader = "\R"
 let g:coc_global_extensions = ['coc-phpls', 'coc-tsserver', 'coc-prettier', 'coc-go', 'coc-restclient']
-command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Format :call CocAction('format')
+autocmd BufWritePre *.go :silent call CocAction('format') 
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 vmap <S-f> <Plug>(coc-format-selected)
 nmap <S-f> <Plug>(coc-format-selected)
@@ -219,7 +220,7 @@ command! Cocdel silent! call dein#check_clean() && call dein#recache_runtimepath
 
 
 " vim-closetag 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.tsx, *.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.tsx, *.ts, *.js, *.jsx'
 
 " fzf
 let mapleader = "\<Space>"
@@ -258,7 +259,7 @@ nnoremap <silent> vaf [m{jV]m%
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
+let g:SuperTabCrMapping=1
 
 " devicons (if nerd-font is installed set 1 to this.
 let g:webdevicons_enable_nerdtree = 1
