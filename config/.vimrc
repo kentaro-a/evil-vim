@@ -266,8 +266,6 @@ let g:webdevicons_enable_nerdtree = 1
 
 
 " easy-motion
-let mapleader = "z"
-map  <Leader>j <Plug>(easymotion-bd-w)
-nmap <Leader>j <Plug>(easymotion-overwin-w)
-map <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
+let mapleader = "m"
+map  <Leader>v <Plug>(easymotion-bd-w)
+nmap <Leader>v <Plug>(easymotion-overwin-w)
