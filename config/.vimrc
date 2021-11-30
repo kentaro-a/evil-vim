@@ -220,7 +220,7 @@ command! Cocdel silent! call dein#check_clean() && call dein#recache_runtimepath
 
 
 " vim-closetag 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.tsx, *.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.tsx, *.ts, *.js, *.jsx'
 
 " fzf
 let mapleader = "\<Space>"
