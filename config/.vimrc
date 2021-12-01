@@ -217,7 +217,7 @@ nmap <S-f> <Plug>(coc-format-selected)
 noremap <Leader>q :CocCommand rest-client.request <cr>
 command! Cocdel silent! call dein#check_clean() && call dein#recache_runtimepath()
 
-imap <silent><expr> <Space><Space> coc#refresh()
+imap <silent><expr> <S-Down> coc#refresh()
 
 " vim-closetag 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.tsx, *.ts, *.js, *.jsx'
