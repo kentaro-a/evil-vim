@@ -74,7 +74,7 @@ set modifiable
 set write
 set ignorecase
 set encoding=utf-8
-
+set whichwrap=h,l
 
 " filetype
 au BufNewFile,BufRead *.ctp setf ctp
@@ -105,7 +105,6 @@ noremap <S-j>	}
 noremap <S-k>	{
 noremap <S-l>	$
 vnoremap <S-l> $<Left>
-
 
 " Quick Fix
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
@@ -218,6 +217,7 @@ nmap <S-f> <Plug>(coc-format-selected)
 noremap <Leader>q :CocCommand rest-client.request <cr>
 command! Cocdel silent! call dein#check_clean() && call dein#recache_runtimepath()
 
+imap <silent><expr> <Space><Space> coc#refresh()
 
 " vim-closetag 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue, *.ctp, *.tsx, *.ts, *.js, *.jsx'
